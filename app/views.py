@@ -30,8 +30,10 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
             user = User(email=form.email.data)
+            user.nickname = user.email.split('@')[0]
             db.session.add(user)
             db.session.commit()
+
         flash('Login requested for Email="%s", remember_me="%s"' %
               (form.email.data, str(form.remember_me.data)))
         return redirect('/index')

@@ -14,12 +14,13 @@
 - v0.7: progress indication for how many people users have refered
 
 ##Possible features: 
-- Add password and login authentication
 - verfiy paypal payment of 10$ which will go through only
-        if they do not vote. 
+        if they do not vote. ? no
+
 
 The purpose of this webapp is to mess around with html and python,
 and hopefully eventually turn it into something useful.
 
-Initial code examples from a tutorial on code.tutsplus.com
-which details and walks through the creating of a bucketlist webserver.
+Boiler plate code and Flask know-how from Miguel Grinberg's book,
+*Flask Web Development*, which has been a great resource that I 
+highly recomend. 
