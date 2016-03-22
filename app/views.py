@@ -1,5 +1,7 @@
 from flask import render_template, flash, redirect
-from app import app, db
+from app import app, db, emails
+from config import ADMINS
+from .emails import send_email
 from .forms import LoginForm
 from .models import User
 
@@ -33,9 +35,14 @@ def login():
             user.nickname = user.email.split('@')[0]
             db.session.add(user)
             db.session.commit()
-
-        flash('Login requested for Email="%s", remember_me="%s"' %
-              (form.email.data, str(form.remember_me.data)))
+            if send_email('Thanks for Pledging!', ADMINS[0], [user.email], 'Great job!', '<b>HTML</b> body'):
+                flash('Thankyou for pledging to vote, %s. EMAIL SENT' %
+                        (user.nickname))
+            else:
+                flash('Thankyou for pledging to vote, %s. no email' %
+                        (user.nickname))
+        flash('%s, you are already in the database' %
+                        (user.nickname))
         return redirect('/index')
     return render_template('login.html',
     			   title='Sign In',
