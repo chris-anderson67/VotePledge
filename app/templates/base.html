@@ -1,25 +1,26 @@
-<html>
-        <head>
-                {% if title %}
-                <title>{{ title }} - VotePledge</title>
-                {% else %}
-                <title>Welcome to VotePledge</title>
-                {% endif %}
-        </head>
-        <body>
-                <div>VotePledge: <a href="/index">Home</a>  <a href="/login">Login</a>
-                </div>
+{% extends "bootstrap/base.html" %}
 
-                <hr>
-                {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                                <ul>
-                                {% for message in messages %}
-                                        <li>{{ message }} </li>
-                                {% endfor %}
-                                </ul>
-                        {% endif %}
-                {% endwith %}
-                {% block content %}{% endblock %}
-        </body>
-</html>
+{% block title %}VotePledge{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <h><a class="navbar-brand" href="/">Go Vote</a></h>
+        </div>
+        <div class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Sign Up</a></li>
+        </div>
+    </div>
+</div>
+<div>
+    {% include 'flash.html' %} 
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
