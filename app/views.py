@@ -7,12 +7,12 @@ from .forms import LoginForm
 from .models import User
 
 
-@app.route('/share')
-# def index():
-#     # user = {'nickname': 'Chris'}  # placeholder
+@app.route('/index')
+def index():
+    user = {'nickname': 'Chris'}  # placeholder
 
-#     return render_template('index.html',
-#                            title='Home')
+    return render_template('index.html',
+                           title='Home')
 
 # Login / Sign up Page
 @app.route('/login', methods=['GET', 'POST'])
@@ -24,9 +24,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
             user = User(email=form.email.data)
-            user.nickname = form.nickname.data
-            if user.nickname is None:
-                user.nickname = user.email.split('@')[0]
+            # user.nickname = form.nickname.data
+            # if user.nickname is None:
+            user.nickname = user.email.split('@')[0]
             db.session.add(user)
             db.session.commit()
             send_welcome_email(user)
