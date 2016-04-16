@@ -21,23 +21,22 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-
         user = User.query.filter_by(email=form.email.data).first()
+
         if user is None:
             r_email = request.form['email']
             email = requests.get(r_email)
             user = User(email=email.text)
-            # user.nickname = form.nickname.data
-            # if user.nickname is None:
+
             user.nickname = user.email.split('@')[0]
             db.session.add(user)
             db.session.commit()
             send_welcome_email(user)
 
-            flash('Thankyou for pledging to vote, %s. EMAIL SENT' %
+            flash('Thankyou for pledging to vote, %s. Email Sent' %
                         (user.nickname))
         else:
-            flash('%s, you are already in the database' %
+            flash('%s, you are already in the database.' %
                         (user.nickname))
         return redirect('/index')
     return render_template('login.html',
