@@ -10,5 +10,8 @@ db = SQLAlchemy(app)
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+
 
 from app import views, models
