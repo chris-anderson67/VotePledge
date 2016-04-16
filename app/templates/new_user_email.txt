@@ -1,6 +1,6 @@
 Dear {{ user.nickname }},
 
-Thank you for pledging to vote for your canidate in the upcoming general election. 
+Thank you for pledging to vote for your candidate in the upcoming general election. 
 
 You will recieve another notification prior to voting day, as well as resources to help you get registered!
 

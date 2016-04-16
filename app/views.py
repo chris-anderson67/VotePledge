@@ -5,8 +5,10 @@ from config import ADMINS
 from .emails import send_email, send_welcome_email
 from .forms import LoginForm
 from .models import User
+import requests
 
 
+@app.route('/')
 @app.route('/index')
 def index():
     user = {'nickname': 'Chris'}  # placeholder
@@ -16,14 +18,15 @@ def index():
 
 # Login / Sign up Page
 @app.route('/login', methods=['GET', 'POST'])
-@app.route('/')
 def login():
     form = LoginForm()
     if form.validate_on_submit():
 
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-            user = User(email=form.email.data)
+            r_email = request.form['email']
+            email = requests.get(r_email)
+            user = User(email=email.text)
             # user.nickname = form.nickname.data
             # if user.nickname is None:
             user.nickname = user.email.split('@')[0]
