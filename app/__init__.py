@@ -4,6 +4,7 @@ import os
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.mail import Mail
 import logging
+import sys
 
 app = Flask(__name__)
 app.config.from_object('config')
