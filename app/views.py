@@ -1,11 +1,10 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request
 from app import app, db, emails
 from config import ADMINS
-# from flask.ext.wtf import Forms
 from .emails import send_email, send_welcome_email
 from .forms import LoginForm
 from .models import User
-import requests
+
 
 
 @app.route('/')
@@ -19,15 +18,14 @@ def index():
 # Login / Sign up Page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    form = LoginForm(request.form)
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        
+	email_addr = form.email.data
+        user  = User.query.filter_by(email=email_addr).first()
 
         if user is None:
-            r_email = request.form['email']
-            email = requests.get(r_email)
-            user = User(email=email.text)
-
+            user = User(email=email_addr)
             user.nickname = user.email.split('@')[0]
             db.session.add(user)
             db.session.commit()

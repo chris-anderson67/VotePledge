@@ -2,6 +2,9 @@
 ###Chris Anderson
 - Users will pledge to vote on election day
 
+#TODO: make db_create output debugging to heroku logs
+#      figure out why bootstrap/base.html is not found
+
 ##Plan:
 - v0.1: users should be able to sign up - and be verified by email
         - no password or login, simply adding their email
