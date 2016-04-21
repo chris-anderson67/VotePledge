@@ -20,19 +20,18 @@ def index():
 def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
-
         email_addr = form.email.data
-        USER = User.query.filter_by(email=email_addr).first()
+        user = User.query.filter_by(email=email_addr).first()
 
-        if USER is None:
-            USER = User(email=email_addr)
-            USER.nickname = USER.email.split('@')[0]
-            db.session.add(USER)
+        if user is None:
+            user = User(email=email_addr)
+            user.nickname = user.email.split('@')[0]
+            db.session.add(user)
             db.session.commit()
-            send_welcome_email(USER)
+            send_welcome_email(user)
 
             flash('Thankyou for pledging to vote, %s. Email Sent' %
-                  (USER.nickname))
+                  (user.nickname))
         else:
             flash('%s, you are already in the database.' %
                   (user.nickname))
