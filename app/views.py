@@ -1,3 +1,5 @@
+# Views: definitions of pages within site
+
 from flask import render_template, flash, redirect, request
 from app import app, db, emails
 from config import ADMINS
@@ -21,6 +23,7 @@ def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
         email_addr = form.email.data
+        print "Email address: " + email_addr
         user = User.query.filter_by(email=email_addr).first()
 
         if user is None:
