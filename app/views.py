@@ -1,11 +1,11 @@
 # Views: definitions of pages within site
 
 from flask import render_template, flash, redirect, request
-from app import app, db, emails
+from app import app, emails
 from config import ADMINS
 from .emails import send_email, send_welcome_email
 from .forms import LoginForm
-from .models import User
+# from .models import User
 
 
 # Homepage: not sure what to put here yet
