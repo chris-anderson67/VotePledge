@@ -1,8 +1,8 @@
 WTF_CSRF_ENABLED = True
 SECRET_KEY = 'thing1'
 
+from app import app
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Email
 MAIL_SERVER = 'smtp.gmail.com'
@@ -12,7 +12,7 @@ MAIL_USE_SSL = True
 MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
-# Databse
+#Start Command Line interaction
 
 # administrator list
 ADMINS = ['your-gmail-username@gmail.com']
