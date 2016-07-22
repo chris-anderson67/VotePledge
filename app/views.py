@@ -23,31 +23,26 @@ def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
         email_addr = form.email.data
+        nickname = email_addr.split('@')[0]
         print "Email address: " + email_addr
-
-        # TODO Replace
         db = db_manip.get_db(app)
-         
-        # user = User.query.filter_by(email=email_addr).first()
-        user = None
+        cur = db.cursor()
+        cur.execute("SELECT rowid FROM users WHERE email = ?", (email_addr,))
+        data = cur.fetchone()
 
-        if user is None:
-            # user = User(email=email_addr)
-            nickname = email_addr.split('@')[0]
-            
-            # TODO Replace
+        if data is None:
             db.execute('insert into users (email) values (?)', (email_addr,))
-            # db.session.add(user)
-            # db.session.commit()
+            db.commit()
 
             send_welcome_email(email_addr)
-
             flash('Thankyou for pledging to vote, %s. Email Sent' %
                   (nickname))
+
         else:
             flash('%s, you are already in the database.' %
                   (nickname))
         return redirect('/index')
+
     return render_template('login.html',
-	                          title='Sign In',
-			                  form=form)
+	                   title='Sign In',
+			   form=form)
