@@ -9,13 +9,14 @@ def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
 
-def send_welcome_email(user):
+def send_welcome_email(email_addr):
+    nickname = email_addr.split('@')[0]
     send_email('You Pledged your Vote: Thank you!',
-               ADMINS[0], [user.email],
+               ADMINS[0], [email_addr],
                render_template("new_user_email.txt",
-                               user=user),
+                               nickname=nickname),
                render_template("new_user_email.html",
-                               user=user))
+                               nickname=nickname))
                
 def send_email(subject, sender, recipients, text_body, html_body):
     msg = Message(subject, sender=sender, recipients=recipients)

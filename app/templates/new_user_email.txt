@@ -1,4 +1,4 @@
-Dear {{ user.nickname }},
+Dear {{ nickname }},
 
 Thank you for pledging to vote for your candidate in the upcoming general election. 
 
