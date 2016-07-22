@@ -17,23 +17,26 @@ def index():
     return render_template('index.html',
                            title='Home')
 
-# Login / Sign up Page
+# Login / Sign up Page 
+# Checks if User in Database,
+# Adds them if not
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
         email_addr = form.email.data
         nickname = email_addr.split('@')[0]
-        print "Email address: " + email_addr
+
+        # Check db for user
         db = db_manip.get_db(app)
         cur = db.cursor()
         cur.execute("SELECT rowid FROM users WHERE email = ?", (email_addr,))
         data = cur.fetchone()
 
+        # Welcome new user
         if data is None:
             db.execute('insert into users (email) values (?)', (email_addr,))
             db.commit()
-
             send_welcome_email(email_addr)
             flash('Thankyou for pledging to vote, %s. Email Sent' %
                   (nickname))

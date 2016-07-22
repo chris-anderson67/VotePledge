@@ -15,10 +15,10 @@ app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'votepledge.db'),
     SECRET_KEY='dev_key'
 ))
+
 FlaskCLI(app)
 mail = Mail(app)
 # bootstrap = Bootstrap(app)
-
 
 @app.teardown_appcontext
 def close_db_teardown(error):
@@ -28,10 +28,8 @@ def close_db_teardown(error):
 def initdb_command():
     db_manip.init_db(app)
     print 'INITIALIZED_DATABASE'
-# Conects to specific db
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
-
 
 from app import views
