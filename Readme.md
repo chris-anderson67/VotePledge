@@ -1,12 +1,9 @@
-#Vote Pledge App experiment 0.3.0
+#Vote Pledge App experiment 0.3.5
 ###Chris Anderson
 - Users will pledge to vote on election day
 
-Trying out sqlite
-
-
-#TODO: make db_create output debugging to heroku logs
-#      figure out why bootstrap/base.html is not found
+#### Current: 
+Migrated to SQL lite, deploying to Heroku
 
 ##Plan:
 - v0.1: users should be able to sign up - and be verified by email
@@ -18,7 +15,7 @@ Trying out sqlite
     - 0.3.1: custom css for login page
     - 0.3.2: format login page as home page with two columns
 - v0.3.5: Swith to SQLlite
-    - current project
+    - Merge into Heroku
 - v0.4: users reminded via email about voting
 - v0.5: users should be able to login with a password and create profile
 - v0.6: provide option for users to share votePledge with their friends
