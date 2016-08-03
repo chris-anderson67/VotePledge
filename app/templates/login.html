@@ -1,18 +1,23 @@
-<!-- extend base layout -->
-<!-- Help! -->
-
-
 {% extends "base.html" %}
+<head>
+    <link href="/static/login.css" rel="stylesheet">
+</head>
 
 {% block page_content %}
-<div class="container">
-<h1>Sign Up</h1>
-<form action="" method="post" name="login">
-    {{ form.hidden_tag() }}
-    <p> Please enter your Email: </p>
-    <p><input type="text" name="email" placeholder="username@web.com"></p>
-    <p><button class="btn btn-success" type="submit" >Sign Up</button></p>
-</form>
-</div>
+        <p> Research shows that telling yourself that saying 
+            you will vote in writing greatly increases the chances 
+            that you'll vote. Help us increase political participation 
+            by making a promise to yourself and pleding to vote.
+        </p>
+
+        <div class="container" id="login_object">
+        <h2>Pledge your vote!</h2>
+        <form action="" method="post" name="login">
+            {{ form.hidden_tag() }}
+            <p> Enter your email </p>
+            <p><input type="text" name="email" placeholder="username@web.com"></p>
+            <p><button class="btn btn-success" type="submit" >Sign Up</button></p>
+        </form>
+        </div>
 
 {% endblock %}

@@ -8,18 +8,16 @@ import db_manip
 # from .models import User
 
 
-# Homepage: not sure what to put here yet
-@app.route('/')
+# Extra page - not used
 @app.route('/index')
-
 def index():
-    user = {'nickname': 'Chris'}  # placeholder
     return render_template('index.html',
                            title='Home')
 
-# Login / Sign up Page 
+# Login / Sign up Page / Home page / (The only page?)
 # Checks if User in Database,
 # Adds them if not
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
@@ -44,7 +42,7 @@ def login():
         else:
             flash('%s, you are already in the database.' %
                   (nickname))
-        return redirect('/index')
+        return redirect('/')
 
     return render_template('login.html',
 	                   title='Sign In',
