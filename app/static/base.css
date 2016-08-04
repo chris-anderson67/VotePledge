@@ -1,0 +1,49 @@
+a.brand {
+    font-family: "Helvetica";
+    font-weight: bold;
+}
+
+#page_link {
+    font-family: "Helvatica";
+}
+
+h1 {
+    font-family: "Helvetica";
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+h1,
+h2,
+strong {
+    color: #333;
+}
+
+
+#override_bootstrap {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: Helvetica;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #566b78;
+} 
+
+#parent_header {
+    background-color: #263d36;
+    background-image: url(http://i.imgur.com/viUB3dc.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1.2;
+    padding: 10vw 2em;
+    text-align: center;
+}
+
+#parent_header h1 {
+    color: white;
+    font-size: 10vw;
+    font-weight: 700;
+    font-family: "Helvetica";
+}
+
