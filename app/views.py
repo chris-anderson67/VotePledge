@@ -36,7 +36,7 @@ def login():
             db.execute('insert into users (email) values (?)', (email_addr,))
             db.commit()
             send_welcome_email(email_addr)
-            flash('Thankyou for pledging to vote, %s. Email Sent' %
+            flash('Thank you for pledging to vote, %s. If the back-end was not broken you would get a confirmation email.' %
                   (nickname))
 
         else:
