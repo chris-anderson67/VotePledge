@@ -1,11 +1,8 @@
 #Vote Pledge App experiment 0.3.5
 ###Chris Anderson
-- Users will pledge to vote on election day - 
+- Users will pledge to vote in major election - 
 
-#### Current: 
-Migrated to SQL lite, deploying to Heroku
-
-## Plan:
+## Changes:
 - v0.1: users should be able to sign up - and be verified by email
         - no password or login, simply adding their email
 
@@ -17,18 +14,18 @@ Migrated to SQL lite, deploying to Heroku
 - v0.3.5: Swith to SQLlite
     - Merge into Heroku
     - Database Functional
-- v0.3.6: Improve Design
-- v0.3.7: Deploy to AWS or RPi
-- v0.4: users reminded via email about voting
-- v0.6: provide option for users to share votePledge with their friends
+
+## Issues / Future Plan:
+- Move deployment to DigitalOcean
+- Improve email response reliability (authentication to votepledge email still shoddy).
 
 ##Possible features: 
-- verfiy paypal payment of 10$ which will go through only
-        if they do not vote. ? no
+- verfiy paypal payment of 10$ which will go through only if user
+    doesn't confirm vote registration
 
 
-The purpose of this webapp is to mess around with html and python,
-and hopefully eventually turn it into something useful.
+The purpose of this webapp is to mess around with html and python, and
+increase voter turnout.
 
 Boiler plate code and Flask know-how from Miguel Grinberg's book,
 *Flask Web Development*, which has been a great resource that I 
