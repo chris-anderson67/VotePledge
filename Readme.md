@@ -1,7 +1,7 @@
 #Vote Pledge App experiment 0.3.5
 ## <a href="http://votepledge.us">votepledge.us</a>
 ### Chris Anderson
-- Users pledge to vote in major election - 
+- Users pledge to vote in major election
 
 ## Changes:
 - v0.1: Users should be able to sign up
@@ -22,6 +22,8 @@
 The purpose of this webapp was to mess around with html and python, and
 increase voter turnout.
 
-Boiler plate code and Flask know-how from Miguel Grinberg's book,
+## Project Structure
+- Boiler plate code and Flask know-how from Miguel Grinberg's book,
 *Flask Web Development*, which has been a great resource that I 
 highly recomend. 
+- Main views, pages defined in /app/views.py
