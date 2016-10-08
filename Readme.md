@@ -1,6 +1,6 @@
 #Vote Pledge App experiment 0.3.5
 ###Chris Anderson
-- Users will pledge to vote in major election - 
+- Users pledge to vote in major election - 
 
 ## Changes:
 - v0.1: users should be able to sign up - and be verified by email
@@ -15,16 +15,11 @@
     - Merge into Heroku
     - Database Functional
 
-## Issues / Future Plan:
+## Possible future options:
 - Move deployment to DigitalOcean
 - Improve email response reliability (authentication to votepledge email still shoddy).
 
-##Possible features: 
-- verfiy paypal payment of 10$ which will go through only if user
-    doesn't confirm vote registration
-
-
-The purpose of this webapp is to mess around with html and python, and
+The purpose of this webapp was to mess around with html and python, and
 increase voter turnout.
 
 Boiler plate code and Flask know-how from Miguel Grinberg's book,
